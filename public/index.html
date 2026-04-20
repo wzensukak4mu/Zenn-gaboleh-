@@ -1,1 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZENNN AI | Dev Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Warna Dasar & Scrollbar */
+        body { background-color: #020617; } /* Deep Dark Blue */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-thumb { background: #0ea5e9; border-radius: 10px; }
+        
+        /* Efek Glow & Glassmorphism */
+        .neon-glow { text-shadow: 0 0 10px #0ea5e9, 0 0 20px #0ea5e9; }
+        .glass-panel { 
+            background: rgba(15, 23, 42, 0.8); 
+            backdrop-filter: blur(12px); 
+            border: 1px solid rgba(14, 165, 233, 0.2); 
+        }
+        .message-ai { border-left: 3px solid #0ea5e9; background: rgba(14, 165, 233, 0.05); }
+        .message-user { border-right: 3px solid #334155; background: rgba(51, 65, 85, 0.2); }
+        
+        /* Animasi */
+        .fade-in { animation: fadeIn 0.3s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="font-mono text-slate-200">
 
+    <div class="max-w-5xl mx-auto h-screen flex flex-col p-4 md:p-8">
+        <header class="flex justify-between items-center mb-6 border-b border-sky-900/50 pb-4">
+            <div>
+                <h1 class="text-2xl font-black tracking-tighter text-sky-400 neon-glow italic">
+                    ZENNN_AI <span class="text-[10px] bg-sky-500 text-black px-1 rounded not-italic ml-1">v2.0</span>
+                </h1>
+                <p class="text-[10px] text-sky-700 uppercase tracking-widest mt-1">NusantaraX Development Engine</p>
+            </div>
+            <div class="flex items-center gap-2">
+                <div class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></div>
+                <span class="text-[10px] font-bold text-emerald-500 uppercase">System Online</span>
+            </div>
+        </header>
+
+        <div id="display" class="flex-1 overflow-y-auto space-y-6 pr-2 mb-6 chat-container">
+            <div class="flex flex-col items-center justify-center h-full text-sky-900 opacity-30 select-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <p class="text-xs uppercase tracking-[0.3em]">Ready to Code</p>
+            </div>
+        </div>
+
+        <div class="glass-panel p-2 rounded-2xl shadow-[0_0_30px_rgba(14,165,233,0.1)] flex gap-3 items-center">
+            <div class="pl-4 text-sky-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M11.3 1.047a1 1 0 01.897.45l6.413 10.893A1 1 0 0117.746 14H13.91l-1.01 3.028a1 1 0 01-1.9 0l-1.011-3.029H4.11a1 1 0 01-.861-1.51l6.414-10.89a1 1 0 01.838-.453z" clip-rule="evenodd" />
+                </svg>
+            </div>
+            <input type="text" id="input" autocomplete="off" 
+                placeholder="Ask anything about coding, bots, or server management..." 
+                class="flex-1 bg-transparent border-none outline-none py-3 text-sm text-sky-100 placeholder-sky-800">
+            
+            <button onclick="ask()" class="bg-sky-600 hover:bg-sky-400 text-black font-black py-2 px-8 rounded-xl transition-all duration-300 active:scale-95 shadow-lg shadow-sky-600/20">
+                RUN_CODE
+            </button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
